@@ -2,6 +2,21 @@ import { fifaData } from './fifa.js';
 console.log(fifaData);
 
 console.log('its working');
+let mappedCityStates = fifaData.map((state) => {
+    return {'Attendance': state.Attendance, 'Year': state.Year};
+  });
+
+let filterLandArea = fifaData.filter((state) => {
+    if(state.Year >= 2014 && state.Stage === 'Final') {
+        console.log(state['Home Team Name']);
+        console.log(state['Away Team Name']);
+        console.log(state['Home Team Goals']);
+        console.log(state['Away Team Goals']);
+        console.log(state['Win conditions']);
+    }
+  });
+
+
 // ⚽️ M  V P ⚽️ //
 
 /* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 

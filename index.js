@@ -6,15 +6,6 @@ let mappedCityStates = fifaData.map((state) => {
     return {'Attendance': state.Attendance, 'Year': state.Year};
   });
 
-let filterLandArea = fifaData.filter((state) => {
-    if(state.Year >= 2014 && state.Stage === 'Final') {
-        console.log(state['Home Team Name']);
-        console.log(state['Away Team Name']);
-        console.log(state['Home Team Goals']);
-        console.log(state['Away Team Goals']);
-        console.log(state['Win conditions']);
-    }
-  });
 
 
 // ⚽️ M  V P ⚽️ //
@@ -27,14 +18,23 @@ let filterLandArea = fifaData.filter((state) => {
 (d) Away Team goals for 2014 world cup final
 (e) Winner of 2014 world cup final */
 
+let homeAndAway = fifaData.filter((state) => {
+    return state.Year >= 2014 && state.Stage === 'Final'
+}, 0);
+
+console.log(homeAndAway[0]['Home Team Name'])
+console.log(homeAndAway[0]['Away Team Name'])
+console.log(homeAndAway[0]['Home Team Goals'])
+console.log(homeAndAway[0]['Away Team Goals'])
+console.log(homeAndAway[0]['Win conditions'])
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
-
-    /* code here */
-
+function getFinals(data) {
+    
 };
+
+console.log(getFinals(fifaData[0]['Stage']))
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 

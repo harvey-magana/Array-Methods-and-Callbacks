@@ -83,13 +83,16 @@ console.log(getWinnersByYear(getYears(fifaData), getWinners(fifaData)));
 
 /* Task 7: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
-function getAverageGoals(/* code here */) {
-
-    /* code here */
-
+function getAverageGoals(data) {
+    let arr = [];
+    const home = data.reduce((total, state) => total + state['Home Team Goals'], 0) / data.length;
+    const away = data.reduce((total, state) => total + state['Away Team Goals'], 0) / data.length;
+    arr.push(home);
+    arr.push(away)
+    return arr;
 };
 
-getAverageGoals();
+console.log(getAverageGoals(fifaData))
 
 /// STRETCH 🥅 //
 
@@ -98,13 +101,18 @@ getAverageGoals();
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-function getCountryWins(/* code here */) {
-
-    /* code here */
-
+function getCountryWins(data) {
+    /*
+    let sum;
+    return data.reduce((total, state) => {
+        if (state['Home Team Initials'] === team && state['Home Team Goals'] > state['Away Team Goals']) {
+            sum = total + state['Home Team Goals'].length;
+        }
+        return sum;
+    }, 0);*/
 };
 
-getCountryWins();
+console.log(getCountryWins(fifaData));
 
 
 /* Stretch 3: Write a function called getGoals() that accepts a parameter `data` and returns the team with the most goals score per appearance (average goals for) in the World Cup finals */

@@ -76,7 +76,7 @@ Parameters:
  */
 
 function getWinnersByYear(callback1, callback2) {
-    return callback1.map((year) => { return callback2.map((country) => `In ${year}, ${country} won the world cup!`)})
+    return callback1.map((year, index) => { let country = callback2[index]; return (`In ${year}, ${country} won the world cup!`)})
 };
 
 console.log(getWinnersByYear(getYears(fifaData), getWinners(fifaData)));
